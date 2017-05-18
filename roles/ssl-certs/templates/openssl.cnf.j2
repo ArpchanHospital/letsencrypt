@@ -22,5 +22,5 @@ keyUsage = nonRepudiation, digitalSignature, keyEncipherment
 subjectAltName = @alt_names
 
 [alt_names]
-DNS.1 = {{ ec2_tag_Name }}.{{ PublicHostedZone }}
-DNS.2 = erp-{{ ec2_tag_Name }}.{{ PublicHostedZone }}
+DNS.1 = {{ container_name }}.{{ PublicHostedZone }}
+DNS.2 = erp-{{ container_name }}.{{ PublicHostedZone }}
