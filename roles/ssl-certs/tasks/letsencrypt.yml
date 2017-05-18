@@ -57,7 +57,7 @@
   become: yes
 
 - name: generate certificate signing request
-  shell: openssl req -new -sha256 -key {{ certs_dir }}/domain.key -subj "/CN={{ ec2_tag_Name }}.{{ PublicHostedZone }}" -reqexts SAN -config <(cat /etc/ssl/openssl.cnf <(printf "[SAN]\nsubjectAltName=DNS.1:{{ ec2_tag_Name }}.{{ PublicHostedZone }},DNS.2:erp-{{ ec2_tag_Name }}.{{ PublicHostedZone }}")) -out {{ certs_dir }}/csr.csr
+  shell: openssl req -new -sha256 -key {{ certs_dir }}/domain.key -subj "/CN={{ container_name }}.{{ PublicHostedZone }}" -reqexts SAN -config <(cat /etc/ssl/openssl.cnf <(printf "[SAN]\nsubjectAltName=DNS.1:{{ container_name }}.{{ PublicHostedZone }},DNS.2:erp-{{ container_name }}.{{ PublicHostedZone }}")) -out {{ certs_dir }}/csr.csr
   args:
     executable: /bin/bash
   become: yes
