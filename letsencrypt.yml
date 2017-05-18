@@ -1,0 +1,7 @@
+- hosts: all
+  become: yes
+#  vars:
+##  ansible_ssh_common_args: '-o ProxyCommand="ssh -W %h:%p -q centos@bastion.mybahmni.org"'
+   ansible_user: root
+  roles:
+    - ssl-certs
